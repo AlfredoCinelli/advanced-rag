@@ -13,6 +13,10 @@ The retrieval uses Pinecone as vector store with semantic search and reranking u
 The generation is done by performing contextual compression before passing the retrieved documents to the LLM.
 The chunking is done via Semantic chunking.
 
+All the LLMs used are via Ollama. The ones used are:
+* Mistral-Nemo for the graders
+* Qwen2.5 for the router and function caller agent
+* Phi4 for generation
 All the implementation is done using LangChain to build the chains and LangGraph to build the graph and orchestrate the execution.
 The interaction with the Agentic-RAG is slow due to the several LLM calls, the tracing is done via LangSmith.
 The UI is build in Streamlit.
@@ -20,6 +24,8 @@ The UI is build in Streamlit.
 The graph is the following:
 
 ![Agent Graph](assets/graph-components.png)
+
+**Note**: The papers are more advanced, but the aim of the project is to take parts and bits from them and implement with Lanchain, LangGraph, LangSmith, Pinecone and Streamlit, HuggingFace and Ollama (so only OSS with 0 cost).
 
 ## ✨ Features
 
@@ -49,11 +55,16 @@ uv sync
 
 3. Set up your environment variables (in the `local/.env` file), see below for more details.
 
-4. Run the application (via Make):
+4. Run the ingestion module (via Make):
+```bash
+make ingestion
+```
+
+5. Run the application (via Make):
 ```bash
 make app
 ```
-Unit-tests (via Make):
+Unit-tests (via Make - optional):
 ```bash
 make pytest
 ```
@@ -64,7 +75,6 @@ Configure the agent through `local/.env` file:
 
 ```yaml
 TAVILY_API_KEY="your_tavily_api_key"
-SERPER_API_KEY="your_serpapi_api_key"
 LANGCHAIN_TRACING_V2=true
 LANGCHAIN_ENDPOINT="https://api.smith.langchain.com"
 LANGCHAIN_API_KEY="your_langchain_api_key"

@@ -1,0 +1,33 @@
+[project]
+name = "advanced-rag"
+version = "0.1.0"
+description = "Repo for Advanced RAG"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiofiles>=24.1.0",
+    "beautifulsoup4>=4.13.3",
+    "coverage>=7.6.12",
+    "ipython>=8.32.0",
+    "langchain>=0.3.19",
+    "langchain-community>=0.3.18",
+    "langchain-experimental>=0.3.4",
+    "langchain-huggingface>=0.1.2",
+    "langchain-ollama>=0.2.3",
+    "langchain-pinecone>=0.2.0",
+    "langchainhub>=0.1.21",
+    "langgraph>=0.2.74",
+    "mypy>=1.15.0",
+    "pinecone>=6.0.1",
+    "pinecone-text>=0.9.0",
+    "pytest>=8.3.4",
+    "pytest-env>=1.1.5",
+    "pytest-sugar>=1.0.0",
+    "python-dotenv>=1.0.1",
+    "requests==2.27.1",
+    "ruff>=0.9.7",
+    "streamlit>=1.42.2",
+    "tavily-python>=0.5.1",
+    "watchdog>=6.0.0",
+    "wikipedia>=1.4.0",
+]

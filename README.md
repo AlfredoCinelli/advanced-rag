@@ -7,15 +7,19 @@ An advanced RAG, it takes inspiration from several papers:
 
 The adaptive component is based on using a logical routing, where the agent decides wether to perform retrieval or direcly getting external knowledge from the web via Tavily.
 Where the self-correction is aimed at assessing wether the retrieved documents are aligned with the posed question.
-Each document is evaluated by a document grader agent, if at least 50% of the documents are aligned with the question, it is considered aligned and goes to the self-reflection part using only the relevant documents. Otherwise, it calls Tavily to get more external context/information, thus appending to the relevant documents the ones retrieved from the web.
-The self-reflection is aimed at assessing first if the retrieved documents are aligned with the answer given in the generation node, if not it regenerates the answer, otherwise it goes to the second self-reflection. The second self-reflection is aimed at assessing wether the answer is aligned with the question, if not it calls Tavily to get more external context/information.
+Each document is evaluated by a document grader agent, if at least 50% of the documents are aligned with the question, it is considered aligned and goes to the self-reflection part using only the relevant documents. Otherwise, it calls a function caller agent to get more external context/information (either using Tavily or Wikipedia), thus appending to the relevant documents the ones retrieved from the web.
+The self-reflection is aimed at assessing first if the retrieved documents are aligned with the answer given in the generation node, if not it regenerates the answer, otherwise it goes to the second self-reflection. The second self-reflection is aimed at assessing wether the answer is aligned with the question, if not it calls the function caller agent to get more external context/information.
 The retrieval uses Pinecone as vector store with semantic search and reranking using HuggingFace reranker.
 The generation is done by performing contextual compression before passing the retrieved documents to the LLM.
 The chunking is done via Semantic chunking.
 
+All the implementation is done using LangChain to build the chains and LangGraph to build the graph and orchestrate the execution.
+The interaction with the Agentic-RAG is slow due to the several LLM calls, the tracing is done via LangSmith.
+The UI is build in Streamlit.
+
 The graph is the following:
 
-![Agent Graph](assets/graph.png)
+![Agent Graph](assets/graph-components.png)
 
 ## ✨ Features
 
@@ -86,6 +90,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Tavily API](https://tavily.com) for powerful search capabilities
 - [Wikipedia API](https://pypi.org/project/wikipedia/) for knowledge base access
 - [Streamlit](https://streamlit.io) for the amazing UI framework
+- [Pinecone](https://www.pinecone.io) for vector storage
 
 ## 📞 Support
 

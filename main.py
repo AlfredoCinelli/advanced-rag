@@ -1,4 +1,3 @@
-
 """Run manually the Graph."""
 
 # Import packages and modules

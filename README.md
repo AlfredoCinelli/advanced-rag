@@ -31,11 +31,10 @@ The graph is the following:
 
 - **State-of-the-Art implementation**: Takes ideas from three different papers and combines in a unique way
 - **Software Engineering**: Built with best practices in mind, ensuring maintainability, testing and modularity
-- **Dual Search Capabilities**: Leverage both Tavily's AI-powered (and Google Serper) search and Wikipedia's vast knowledge base
+- **Dual Search Capabilities**: Leverage both Tavily's AI-powered search and Wikipedia's vast knowledge base
 - **Retrieval with reranking**: Combines and summarizes information from multiple sources
 - **Generation with contextual compression**: Ensures the given context is concise and relevant
 - **Interactive UI**: Built with Streamlit for a seamless user experience
-- **Context-Aware Responses**: Maintains conversation history for more relevant follow-ups
 - **Full logging**: Keeps a record of all interactions for debugging and analysis
 - **Full tracing**: Logs every interaction, including the user's query, the agent's response, and the sources used via [LangSmith](https://www.smith.langchain.com)
 - **Easy Settingup**: Use [uv](https://docs.astral.sh/uv/) to  set up the project environment
@@ -79,6 +78,7 @@ LANGCHAIN_TRACING_V2=true
 LANGCHAIN_ENDPOINT="https://api.smith.langchain.com"
 LANGCHAIN_API_KEY="your_langchain_api_key"
 LANGCHAIN_PROJECT="your_project_name"
+PINECONE_API_KEY="your_pinecone_api_key"
 ```
 
 ## 🤝 Contributing

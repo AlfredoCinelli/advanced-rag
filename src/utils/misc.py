@@ -13,7 +13,7 @@ def format_docs(
 
     :param documents: list of retrieved documents
     :type documents: list[Document]
-    :return: _description_
+    :return: documents content formatted as a string with newlines
     :rtype: str
     """
     formatted_docs = "\n\n".join([document.page_content for document in documents])

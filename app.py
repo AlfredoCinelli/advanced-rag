@@ -1,6 +1,5 @@
 """Module building the frontend of the Advanced RAG via Streamlit."""
 
-import os
 import warnings
 from dotenv import load_dotenv
 
